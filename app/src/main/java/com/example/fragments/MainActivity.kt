@@ -16,6 +16,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,6 +48,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ScreenTimerCompos(name: String, modifier: Modifier = Modifier) {
+    val mm: MutableState<Int> = remember { mutableIntStateOf(5) }
+    val ss: MutableState<Int> = remember { mutableIntStateOf(0) }
+    val progress: MutableState<Float> = remember { mutableFloatStateOf(0.5F) }
+
     var f: Float = 0.75F
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
@@ -51,21 +60,21 @@ fun ScreenTimerCompos(name: String, modifier: Modifier = Modifier) {
             contentAlignment = Alignment.Center
         ){
             CircularProgressIndicator(
+                progress = progress.value,
                 modifier = Modifier.size(150.dp),
-                progress = f,
                 color = Color.Black,
                 )
             Text(
-                text = "05:00",
+                text = "00:00"//mm.toString() + ss.toString(),
                 //modifier = modifier
             )
         }
         Row(){
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(horizontal = 15.dp)) {
+            Button(onClick = { progress.value+=0.1F }, modifier = Modifier.padding(horizontal = 15.dp)) {
                 Text(text = "||")
 
             }
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(horizontal = 15.dp)) {
+            Button(onClick = { progress.value-=0.1F }, modifier = Modifier.padding(horizontal = 15.dp)) {
                 Text(text = "R")
             }
         }
