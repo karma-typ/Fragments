@@ -40,6 +40,12 @@ fun TimerCompos(name: String, modifier: Modifier = Modifier) {
         Button(onClick = { /*TODO*/ }) {
             Text(text = "33")
         }
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "44")
+        }
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "55")
+        }
 
 
     }
