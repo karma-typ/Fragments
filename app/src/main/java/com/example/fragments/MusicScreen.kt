@@ -7,6 +7,9 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
+data class TrackInfo(val name: String, val author: String, val albumPicker: R.drawable){
+
+}
 @Composable
 fun TrackCompos(){
     Row {
