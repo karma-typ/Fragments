@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.material3.Button
@@ -22,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.fragments.ui.theme.FragmentsTheme
 
 enum class ScreenType{
@@ -74,7 +76,8 @@ fun ScreenDefaultCompos(_screenType: ScreenType, context: Context) {
             Alignment.End
     ){
         Row {
-            Button(onClick = { isScreensVisible.value =!isScreensVisible.value }) {
+            Button(onClick = { isScreensVisible.value =!isScreensVisible.value },
+                Modifier.size(70.dp, 40.dp)) {
                 Text(
                     if (isScreensVisible.value)
                         "⭆"
@@ -83,16 +86,20 @@ fun ScreenDefaultCompos(_screenType: ScreenType, context: Context) {
                 )
             }
             if(isScreensVisible.value) {
-                Button(onClick = { screenType.value = ScreenType.ScreenTimer }) {
+                Button(onClick = { screenType.value = ScreenType.ScreenTimer },
+                    Modifier.size(70.dp, 40.dp)) {
                     Text("⏱\uFE0E")
                 }
-                Button(onClick = { screenType.value = ScreenType.ScreenMusic }) {
+                Button(onClick = { screenType.value = ScreenType.ScreenMusic },
+                    Modifier.size(70.dp, 40.dp)) {
                     Text("♫")
                 }
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = { /*TODO*/ },
+                    Modifier.size(70.dp, 40.dp)) {
                     Text("3")
                 }
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = { /*TODO*/ },
+                    Modifier.size(70.dp, 40.dp)) {
                     Text("4")
                 }
             }
